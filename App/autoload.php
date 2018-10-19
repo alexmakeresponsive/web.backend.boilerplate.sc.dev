@@ -2,7 +2,14 @@
 
 function __autoload($class)
 {
-//    echo $class;
+    echo $class;
+
+    $nameSpaceFirst = array_shift(explode("\\", $class));
+
+    if ($nameSpaceFirst !== 'App') {
+        return;
+    }
+
 //    echo '<br/>';
 //    echo str_replace('\\', '/', $class);
 //    echo '<br/>';
