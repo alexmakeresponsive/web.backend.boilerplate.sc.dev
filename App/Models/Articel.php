@@ -26,6 +26,8 @@ class Articel extends Model
     protected $post_status;
     protected $post_comments_ability;
 
+    use GetIdTrait;
+
     protected function getModelName()
     {
 

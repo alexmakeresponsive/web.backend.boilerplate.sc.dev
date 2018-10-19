@@ -8,9 +8,12 @@
 
 namespace App\Models;
 
+//оператор use задаёт сокращённое имя класса
 use App\Model;
+use App\Models\HasConfirmedStatus;
 
-class User extends Model
+//Классы могут реализовывать несколько интерфейсов
+class User extends Model implements HasConfirmedStatus
 {
     protected static $tableName = 'users';
     protected const TABLE_NAME  = 'users';
@@ -24,8 +27,12 @@ class User extends Model
     protected $user_key_activation;
     protected $user_status;
 
+    use GetIdTrait;
+
     protected function getModelName()
     {
 
     }
+
+    use GetConfirmedStatus;
 }
