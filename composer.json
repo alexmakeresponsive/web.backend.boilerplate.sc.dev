@@ -3,7 +3,8 @@
         "symfony/var-dumper": "^4.1"
     },
     "require": {
-        "symfony/finder": "^4.1"
+        "symfony/finder": "^4.1",
+        "twig/twig": "^2.0"
     },
 
     "autoload": {
