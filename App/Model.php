@@ -8,7 +8,8 @@
 
 namespace App;
 
-use App\Db;
+//можно не делать use т.к. Model находится в том же namespace что и Db
+//use App\Db;
 
 //Раннее связывание делатся через self - связывает код на этапе компиляции
 //в PHP 3 этапа исполнения кода
@@ -39,13 +40,11 @@ use App\Db;
 //Позднее статическое связывание
 //Абстрактные классы не поддерживают множественное наследование
 //Абстрактные классы могут иметь защищённые и приватные методы в отличие от интерфейса
-abstract class Model
+abstract class Model extends ActiveRecordCustom
 {
-    protected const TABLE_NAME = '';
-
     abstract protected function getModelName();
 
-    public function findAll() {
+    public static function findAll() {
         $class = get_called_class();
 
         $db = new Db();

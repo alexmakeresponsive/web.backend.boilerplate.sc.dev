@@ -15,16 +15,16 @@ class Articel extends Model
     protected static $tableName = 'posts';
     protected const TABLE_NAME = 'posts';
 
-    protected $id;
-    protected $id_post_author;
-    protected $post_date_create;
-    protected $post_date_update;
-    protected $post_date_delete;
-    protected $post_content;
-    protected $post_title;
-    protected $post_excerpt;
-    protected $post_status;
-    protected $post_comments_ability;
+
+    public $id_post_author;
+    public $post_date_create;
+    public $post_date_update;
+    public $post_date_delete;
+    public $post_content;
+    public $post_title;
+    public $post_excerpt;
+    public $post_status;
+    public $post_comments_ability;
 
     use GetIdTrait;
 

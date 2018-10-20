@@ -16,21 +16,25 @@ echo '<style>
         }
       </style>';
 
-require __DIR__ . '/../App/autoload.php';
+//require __DIR__ . '/../App/autoload.php';
 
-
-
-//$article = new App\Models\Articel();
-//$data = $article->findAll();
-
-
-$articlles = \App\Models\Articel::findAll();
-$users = \App\Models\User::findAll();
-
-
-//require __DIR__ .'/dumper.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 $dumper = require __DIR__ .'/dumper.php';
 
 
-$dumper($articlles);
-$dumper($users);
+
+$article = new \App\Models\Articel();
+$article->post_title = 'Заголовок статьи 4';
+$article->post_content = 'Контент статьи 4';
+$article->id_post_author = 120;
+$article->post_date_create = date("Y-m-d H:i:s");
+$article->post_date_update = date("Y-m-d H:i:s");
+$article->post_date_delete = date("Y-m-d H:i:s", strtotime('+1 years'));
+$article->post_excerpt = 'Превью контента 4';
+$article->post_status = 'published';
+$article->post_comments_ability = 'no-comments';
+
+$article->insert();
+
+
+$dumper($article);

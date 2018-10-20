@@ -14,7 +14,7 @@ trait GetConfirmedStatus
 {
     protected $statusConfirmed;
 
-    protected function getConfirmedStatus(){
+    public function getConfirmedStatus(){
         return $this->statusConfirmed;
     }
 }

@@ -12,7 +12,7 @@ namespace App\Models;
 //при компиляции содержимое трэйта "вставляется" в класс
 trait GetIdTrait
 {
-    protected $id;
+    public $id;
 
     public function getId()
     {

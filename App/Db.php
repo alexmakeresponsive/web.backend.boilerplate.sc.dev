@@ -23,8 +23,8 @@ class Db
             $config['password']
         );
 
-        echo '<br/>';
-        var_dump($this->dbh);
+//        echo '<br/>';
+//        var_dump($this->dbh);
 
         $this->dbh->exec("set names utf8");
     }
@@ -34,5 +34,16 @@ class Db
         $sth->execute($data);
 
         return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
+    }
+
+    public function execute($sql, $data=[])
+    {
+        $sth = $this->dbh->prepare($sql);
+        return $sth->execute($data);
+    }
+
+    public function getLastId()
+    {
+        return $this->dbh->lastInsertId();
     }
 }
