@@ -2,19 +2,18 @@
 
 function __autoload($class)
 {
-    echo $class;
+    echo 'Class = ' . $class;
+    echo '<br/>';
 
     $nameSpaceFirst = array_shift(explode("\\", $class));
+    echo 'nameSpaceFirst = ' . $nameSpaceFirst;
+    echo '<br/>';
 
-    if ($nameSpaceFirst !== 'App') {
-        return;
+    if ($nameSpaceFirst === 'App') {
+        require __DIR__ . '/../' . str_replace('\\', '/', $class) . '.php';
     }
 
-//    echo '<br/>';
-//    echo str_replace('\\', '/', $class);
-//    echo '<br/>';
-//    echo __DIR__;
-
-    require __DIR__ . '/../' . str_replace('\\', '/', $class) . '.php';
-
+    if ($nameSpaceFirst === 'Symfony') {
+        require_once __DIR__ . '/../vendor/autoload.php';
+    }
 }
