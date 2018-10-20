@@ -15,7 +15,11 @@ use App\View;
 
 class Articel extends Controller
 {
-    public function action()
+    //только для этого контроллера переименовываем acеion на actionIndex чтобы в методе action вызвать actionIndex
+    //в абстрактном контроллере
+    //это делается чтобы проверить доступ к странице ( эмулируем brforeAction по факту вызывая проверку перед запуском actionIndex )
+//    public function action()
+    public function actionIndex()
     {
         $singlePost = \App\Models\Articel::findById($_GET['id']);
 //        вынесли в абстрактный класс

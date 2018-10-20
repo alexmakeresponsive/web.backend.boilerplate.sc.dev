@@ -17,5 +17,19 @@ abstract class Controller
         $this->view = new View();
     }
 
-    abstract public function action();
+//    abstract public function action();
+
+    public function action()
+    {
+        if ($this->access()) {
+            $this->actionIndex();
+        } else {
+            die('Нет доступа');
+        }
+    }
+
+    protected function access(): bool
+    {
+        return true;
+    }
 }
