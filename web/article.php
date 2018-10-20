@@ -16,22 +16,19 @@ echo '<style>
         }
       </style>';
 
-//require __DIR__ . '/../App/autoload.php';
+
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $dumper = require __DIR__ .'/dumper.php';
 
 
-//$allPosts = \App\Models\Articel::findAll();
+//$singlePost = \App\Models\Articel::findById($_GET['id']);
 //
-////$dumper($allPosts);
-//
+//$dumper($singlePost);
 //
 //$viewIndex = new \App\View();
-//$viewIndex->posts = $allPosts;
-//$viewIndex->render(__DIR__ . '/../App/Views/index.php');
+//$viewIndex->post  = $singlePost;
+//$viewIndex->render(__DIR__ . '/../App/Views/article.php');
 
-
-$ctrl = new \App\Controllers\Index();
+$ctrl = new \App\Controllers\Articel();
 $ctrl->action();
-

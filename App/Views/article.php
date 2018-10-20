@@ -9,19 +9,14 @@
 </head>
 <body>
 
-    <b>Posts</b>
-
-    <?php foreach ($this->posts as $singlePost): ?>
     <article>
-        <a href="<?php echo '/article.php?id=' . $singlePost->id; ?>&username=Alexander">
-            <h3><?php echo $singlePost->post_title; ?></h3>
-        </a>
+        <h1><?php echo $this->post->post_title; ?></h1>
         <p>
-            <?php echo $singlePost->post_content; ?>
+            <?php echo $this->post->post_content; ?>
         </p>
         <hr>
     </article>
-    <?php endforeach; ?>
+
 
 </body>
 </html>

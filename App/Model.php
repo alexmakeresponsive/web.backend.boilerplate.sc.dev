@@ -44,15 +44,25 @@ abstract class Model extends ActiveRecordCustom
 {
     abstract protected function getModelName();
 
-    public static function findAll() {
+    public static function findAll()
+    {
         $class = get_called_class();
 
         $db = new Db();
-//        $sql = 'SELECT * FROM ' . self::TABLE_NAME;
         $sql = 'SELECT * FROM ' . static::TABLE_NAME;
 
-//        return $db->query($sql, [], self::class);
         return $db->query($sql, [], static::class);
-//        return $db->query('SELECT * FROM ' . Articel::$tableName, [], '\App\Models\Articel');
+    }
+
+    public static function findById($id)
+    {
+        $db = new Db();
+        $sql = 'SELECT * FROM ' . static::TABLE_NAME . ' WHERE id=:id';
+
+        $data = $db->query(
+            $sql , [':id'=>$id], static::class
+        );
+
+        return $data ? $data[0] : null;
     }
 }
