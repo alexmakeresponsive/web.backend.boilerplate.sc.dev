@@ -28,7 +28,8 @@ $allPosts = \App\Models\Articel::findAll();
 
 
 $viewIndex = new \App\View();
-$viewIndex->assign('posts', $allPosts);
+//$viewIndex->assign('posts', $allPosts);
+$viewIndex->posts = $allPosts;
 $viewIndex->render(__DIR__ . '/../App/Views/index.php');
 
 //include __DIR__ . '/../App/Views/index.php';

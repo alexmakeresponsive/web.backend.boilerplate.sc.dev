@@ -19,6 +19,22 @@ class View
 {
     protected $data = [];
 
+    public function __set($name, $value)
+    {
+        $this->data[$name] = $value;
+    }
+
+    public function __get($name)
+    {
+        return $this->data[$name] ?? null;
+    }
+
+    public function __isset($name)
+    {
+        //return false by default
+        return isset($this->data[$name]);
+    }
+
     public function assign($name, $value)
     {
         $this->data[$name] = $value;
@@ -30,6 +46,12 @@ class View
     public function render($template)
     {
         include $template;
+
+        // or use
+        // ob_start();
+        // include $template;
+        // $content = ob_get_contents();
+        // ob_end_clean();
     }
 
     /**

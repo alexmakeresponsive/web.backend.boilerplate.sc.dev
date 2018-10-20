@@ -11,7 +11,7 @@
 
     <b>Posts</b>
 
-    <?php foreach ($this->data['posts'] as $singlePost): ?>
+    <?php foreach ($this->posts as $singlePost): ?>
     <article>
         <h3><?php echo $singlePost->post_title; ?></h3>
         <p>
