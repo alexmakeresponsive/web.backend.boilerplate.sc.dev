@@ -32,6 +32,7 @@ class Articel extends Controller
 
     }
 
+    // в сигнатуре этого метода применяем type hinting для возвращаемого значения
     protected function access(): bool
     {
         return isset($_GET['username']) && $_GET['username'] === 'Alexander';
