@@ -15,7 +15,9 @@ namespace App;
  *
  * @property array $articles
  */
-class View
+
+//добавим стандартных интерфейсов
+class View implements \Countable
 {
     protected $data = [];
 
