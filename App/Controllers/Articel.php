@@ -31,4 +31,9 @@ class Articel extends Controller
         $this->view->render(__DIR__ . '/../../App/Views/article.php');
 
     }
+
+    protected function access(): bool
+    {
+        return isset($_GET['username']) && $_GET['username'] === 'Alexander';
+    }
 }
