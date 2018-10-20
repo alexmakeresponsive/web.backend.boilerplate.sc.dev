@@ -13,7 +13,8 @@
 
     <?php foreach ($this->posts as $singlePost): ?>
     <article>
-        <a href="<?php echo '/article.php?id=' . $singlePost->id; ?>&username=Alexander">
+        <a href="<?php echo '?ctrl=Articel&id=' . $singlePost->id; ?>&username=Alexander">
+<!--        <a href="--><?php //echo '/article.php?id=' . $singlePost->id; ?><!--&username=Alexander">-->
             <h3><?php echo $singlePost->post_title; ?></h3>
         </a>
         <p>

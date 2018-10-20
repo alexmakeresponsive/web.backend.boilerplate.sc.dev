@@ -32,6 +32,15 @@ $dumper = require __DIR__ .'/dumper.php';
 //$viewIndex->render(__DIR__ . '/../App/Views/index.php');
 
 
-$ctrl = new \App\Controllers\Index();
+//$ctrl = new \App\Controllers\Index();
+//$ctrl->action();
+
+
+$ctrl = $_GET['ctrl']  ?? 'Index';
+$class = '\App\Controllers\\' . $ctrl;
+
+$ctrl  = new $class;
 $ctrl->action();
+
+
 
